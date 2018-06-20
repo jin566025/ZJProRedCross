@@ -48,7 +48,18 @@
 						<div class="content-left-nav" onclick="window.location.href='check-table3.html'">四肢骨折救护实操考核表</div>
 					</div>
 					<div class="content-right fr">
-						
+						<div class="content-section">
+							<div class="content-section-top clearfix">
+								<div class="content-section-top-left fl">三级救护师初训</div>
+								<div class="content-section-top-right2 fr">报名人数：20</div>
+								<div class="content-section-top-right fr">培训班期数：2</div>
+							</div>
+							<div class="content-section-bottom clearfix">
+								<div class="content-section-bottom-left fl">培训名称：xxxxxxxxxxxxxx</div>
+								<div class="content-section-bottom-mid fl">培训名称：xxxxxxxxxxxxxx</div>
+								<div class="content-section-bottom-right fl">培训名称：xxxxxxxxxxxxxx</div>
+							</div>
+						</div>
 						
 
 					</div>
@@ -68,7 +79,7 @@
 			$(function(){
 				var pageNo = 1;
 				var pageSize = 10;
-				getPaperList(redUserId,pageNo,pageSize);
+				//getPaperList(redUserId,pageNo,pageSize);
 				
 				$('#totalPage').on('DOMNodeInserted',function(){
 					var totalSize = parseInt($('#totalPage').text());
@@ -100,38 +111,15 @@
 								var list = data.listDTO;
 								for(var i=0;i<list.length;i++){
 									var html = '<div class="content-section">'+
-													'<p>'+
-														'<a class="section-type">【救护员初训考试】</a>'+
-														'<a class="section-name">'+list[i].title+'</a>'+
-													'</p>'+
-													'<div class="section-infos clearfix">'+
-														'<div class="section-info">'+
-															'<a>满分：</a>'+
-															'<a>'+list[i].totalmark+'分</a>'+
-														'</div>'+
-														'<div class="section-info">'+
-															'<a>通过分数：</a>'+
-															'<a>'+list[i].passmark+'分</a>'+
-														'</div>'+
-														'<div class="section-info">'+
-															'<a>考试时间：</a>'+
-															'<a>'+list[i].papertime+'分钟</a>'+
-														'</div>'+
-														'<div class="section-info">'+
-															'<a>剩余次数：</a>'+
-															'<a>'+list[i].residuetime+'次</a>'+
-														'</div>'+
-														'<div class="section-info">'+
-															'<a>学习学时：</a>'+
-															'<a>'+list[i].learnperiod+'学时</a>'+
-														'</div>'+
-														'<div class="section-info">'+
-															'<a>学习学分：</a>'+
-															'<a>'+list[i].learncredit+'学分</a>'+
-														'</div>'+
+													'<div class="content-section-top clearfix">'+
+														'<div class="content-section-top-left fl">三级救护师初训</div>'+
+														'<div class="content-section-top-right2 fr">报名人数：20</div>'+
+														'<div class="content-section-top-right fr">培训班期数：2</div>'+
 													'</div>'+
-													'<div class="submit-btns clearfix">'+
-														'<div class="fr totest">开始考试</div>'+
+													'<div class="content-section-bottom clearfix">'+
+														'<div class="content-section-bottom-left fl">培训名称：xxxxxxxxxxxxxx</div>'+
+														'<div class="content-section-bottom-mid fl">培训名称：xxxxxxxxxxxxxx</div>'+
+														'<div class="content-section-bottom-right fl">培训名称：xxxxxxxxxxxxxx</div>'+
 													'</div>'+
 												'</div>';
 									$(".content-right").append(html);

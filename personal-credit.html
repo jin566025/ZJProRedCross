@@ -48,21 +48,43 @@
 						<div class="content-left-nav" onclick="window.location.href='check-table3.html'">四肢骨折救护实操考核表</div>
 					</div>
 					<div class="content-right fr">
-						<div class="personal-section">
-							<div class="personal-section-title clearfix">
-								<div class="personal-section-title-left fl">宁波红十字会颁发</div>
-								<div class="personal-section-title-right fr">2018-05-29</div>
-							</div>
-							<img class="personal-section-img personal-section-img1" src="img/test3.png" />
-							<img class="personal-section-img personal-section-img2" src="img/test3.png" />
+						<div class="right-nav clearfix">
+							<div class="right-navs right-navs-active fl" data-type="1">救护员证</div>
+							<div class="right-navs fl" data-type="2">师资证书</div>
+							<div class="right-navs fl" data-type="3">专题证书</div>
 						</div>
-						
-
+						<div class="credit-type credit-type1">
+							<div class="personal-section">
+								<div class="personal-section-title clearfix">
+									<div class="personal-section-title-left fl">宁波红十字会颁发</div>
+									<div class="personal-section-title-right fr">2018-05-29</div>
+								</div>
+								<img class="personal-section-img personal-section-img1" src="img/test3.png" />
+								<img class="personal-section-img personal-section-img2" src="img/test3.png" />
+							</div>
+						</div>
+						<div class="credit-type credit-type2">
+							<div class="personal-section">
+								<div class="personal-section-title clearfix">
+									<div class="personal-section-title-left fl">宁波红十字会颁发2</div>
+									<div class="personal-section-title-right fr">2018-05-29</div>
+								</div>
+								<img class="personal-section-img personal-section-img1" src="img/test3.png" />
+								<img class="personal-section-img personal-section-img2" src="img/test3.png" />
+							</div>
+						</div>
+						<div class="credit-type credit-type3">
+							<div class="personal-section">
+								<div class="personal-section-title clearfix">
+									<div class="personal-section-title-left fl">宁波红十字会颁发3</div>
+									<div class="personal-section-title-right fr">2018-05-29</div>
+								</div>
+								<img class="personal-section-img personal-section-img1" src="img/test3.png" />
+								<img class="personal-section-img personal-section-img2" src="img/test3.png" />
+							</div>
+						</div>
 					</div>
-					
 				</div>
-				
-				
 			</div>
 		</div>
 		<div id="totalPage" style="display: none;"></div>
@@ -89,6 +111,16 @@
 						}
 					})
 			    })
+				
+				$(".right-navs").click(function(){
+					tabNav(this)
+				})
+				function tabNav(t){
+					var type = $(t).attr("data-type");
+					$(t).addClass("right-navs-active").siblings().removeClass("right-navs-active");
+					$(".credit-type").hide();
+					$(".credit-type"+type+"").show();
+				}
 				
 				function getPaperList(redUserId,pageNo,pageSize){
 					$.ajax({

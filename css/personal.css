@@ -76,3 +76,21 @@
 .personal-section-title-right{text-align: right;padding-right: 10%;width: 30%;}
 .personal-section-img{width: 374px;}
 .personal-section-img2{margin-left: 18px;}
+
+
+.content-section-top-left{font-size: 18px;color: #E51C23;font-family: Roboto;}
+.content-section-top-right{font-size:14px;color:#E51C23;font-family: Roboto;margin-right: 60px;}
+.content-section-top-right2{font-size:14px;color: #2FAEFF;font-family: Roboto;}
+
+.content-section-bottom{margin-top: 20px;}
+.content-section-bottom-left,.content-section-bottom-mid,.content-section-bottom-right{width: 33.3%;color: #787878;font-size: 12px;font-family: Roboto;}
+.content-section-bottom-mid{text-align: center;}
+.content-section-bottom-right{text-align: right;}
+
+
+.right-nav{width: 100%;height: 50px;border-bottom: 1px solid gainsboro;line-height: 50px;}
+.right-navs{width: 120px;height: 47px;border-bottom: 3px solid #FFFFFF;text-align: center;color: #323232 ;font-family: Roboto;font-size: 14px;cursor: pointer;}
+.right-navs-active{border-bottom: 3px solid #FF4550;color: #FF4550;}
+
+.credit-type{padding: 46px 0;display: none;}
+.credit-type1{display: block;}
