@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<title>我的学分</title>
+		<link rel="icon" href="icons/ico.ico" type="image/x-icon">
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/personal.css" />
+		<link rel="stylesheet" href="css/paging.css" /> 
+	</head>
+	<body>
+		<div class="container">
+			<div class="main">
+				<div class="header clearfix">
+					<div class="logo fl">
+						<img class="logo-img" src="icons/logo.png" />
+						<a class="logo-name">浙江省红十字会</a>
+					</div>
+					<div class="login-register fr">
+						<img class="personal-info" src="icons/person-info.png" />
+						<div class="personal-info-nav">
+							<p onclick="window.location.href='personal-info.html'">个人资料</p>
+							<p onclick="window.location.href='change-password.html'">修改密码</p>
+							<p id="quit">退出</p>
+						</div>
+					</div>
+				</div>
+				<div class="nav-container clearfix">
+					<div class="nav">培训报名</div>
+					<div class="nav">网上学习</div>
+					<div class="nav">培训大纲</div>
+					<div class="nav nav-active">个人中心</div>
+				</div>
+				<div class="content clearfix">
+					<div class="content-left fl">
+						<div class="content-left-nav" onclick="window.location.href='personal.html'">我的课程</div>
+						<div class="content-left-nav" onclick="window.location.href='personal-score.html'">我的学分</div>
+						<div class="content-left-nav" onclick="window.location.href='personal-test.html'">我的考试</div>
+						<div class="content-left-nav content-left-nav-active">我的成绩</div>
+						<div class="content-left-nav" onclick="window.location.href='personal-credit.html'">我的证书</div>
+						<div class="content-left-nav" onclick="window.location.href='personal-check.html'">培训考核</div>
+						<div class="content-left-nav" onclick="window.location.href='check-table1.html'">成人心肺复苏实操考核表</div>
+						<div class="content-left-nav" onclick="window.location.href='check-table2.html'">外出血救护实操考核表</div>
+						<div class="content-left-nav" onclick="window.location.href='check-table3.html'">四肢骨折救护实操考核表</div>
+					</div>
+					<div class="content-right fr">
+						<!--<div class="content-section">
+							<div class="section-score-content clearfix">
+								<div class="section-score-content-left fl">
+									<a>考试类型：</a>
+									<a>救护员初训</a>
+								</div>
+								<div class="section-score-content-right2 section-type1 fr">已通过</div>
+							</div>
+
+							<p class="section-score">
+								<a>成绩：</a>
+								<a>90分</a>
+							</p>
+							<p class="section-score">宁波红十字会救护员培训（理论考试示范试卷）</p>
+						</div>
+						<div class="content-section">
+							<div class="section-score-content clearfix">
+								<div class="section-score-content-left fl">
+									<a>考试类型：</a>
+									<a>救护员初训</a>
+								</div>
+								<div class="section-score-content-right2 section-type2 fr">未通过</div>
+							</div>
+
+							<p class="section-score">
+								<a>成绩：</a>
+								<a>90分</a>
+							</p>
+							<p class="section-score">宁波红十字会救护员培训（理论考试示范试卷）</p>
+						</div>-->
+					</div>
+					<div class="fenye">
+						<div id="page" class="page_div"></div>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+		<div id="totalPage" style="display: none;"></div>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript" src="js/href.js" ></script>
+		<script type="text/javascript" src="js/checkUser.js" ></script>
+		<script type="text/javascript" src="js/url.js" ></script>
+		<script type="text/javascript" src="js/paging.js" ></script>
+		<script>
+			$(function(){
+				var pageNo=1;
+				var pageSize=10;
+				$('#totalPage').on('DOMNodeInserted',function(){
+					var totalSize = parseInt($('#totalPage').text());
+			    	var totalPage = Math.ceil(totalSize/pageSize);
+			        $("#page").paging({
+						pageNo:pageNo,
+						totalPage: totalPage,
+						totalSize: totalSize,
+						callback: function(pageNo) {
+							getMyScore(redUserId,pageNo,pageSize);
+						}
+					})
+			    })
+				getMyScore(redUserId,pageNo,pageSize);
+				function getMyScore(redUserId,pageNo,pageSize){
+					$.ajax({
+						type:"post",
+						url:url_path+"/user/getMyScore.json",
+						data:{
+							"redUserId":redUserId,
+							"pageNo":pageNo,
+							"pageSize":pageSize
+						},
+						dataType:"json",
+						success:function(data){
+							console.log(data)
+							if(data.msg=="成功"){
+								var list = data.scoreList;
+								for(var i=0;i<list.length;i++){
+									var type_str;
+									if(list[i].trainType=="1"){
+										type_str = "专题培训(讲座)"
+									}else if(list[i].trainType=="2"){
+										type_str = "救护员初训"
+									}else if(list[i].trainType=="3"){
+										type_str = "救护员复训"
+									}else if(list[i].trainType=="4"){
+										type_str = "二级救护师初训"
+									}else if(list[i].trainType=="5"){
+										type_str = "二级救护师复训"
+									}else if(list[i].trainType=="6"){
+										type_str = "三级救护师初训"
+									}else if(list[i].trainType=="7"){
+										type_str = "三级救护师复训"
+									}else if(list[i].trainType=="8"){
+										type_str = "骨干班"
+									}else if(list[i].trainType=="9"){
+										type_str = "AHA培训"
+									}
+									var state_str,state_cls;
+									if(list[i].state){
+										state_str = "已通过";
+										state_cls = "section-type1"
+									}else{
+										state_str = "未通过";
+										state_cls = "section-type2"
+									}
+									var html = '<div class="content-section">'+
+													'<div class="section-score-content clearfix">'+
+														'<div class="section-score-content-left fl">'+
+															'<a>考试类型：</a>'+
+															'<a>'+type_str+'</a>'+
+														'</div>'+
+														'<div class="section-score-content-right2 '+state_cls+' fr">'+state_str+'</div>'+
+													'</div>'+
+													'<p class="section-score">'+
+														'<a>成绩：</a>'+
+														'<a>'+list[i].score+'分</a>'+
+													'</p>'+
+													'<p class="section-score">'+list[i].paper+'</p>'+
+												'</div>';
+									$(".content-right").append(html)
+								}
+								
+							}else if(data.stateCode==102){
+								var html = '<div class="content-section">'+
+												'<p class="section-score">'+data.msg+'</p>'+
+											'</div>';
+								$(".content-right").append(html)
+							}else if(data.msg=="参数不能为NULL或空"){
+								var html = '<p class="fail"><a href="login.html">请先登录</a></p>'
+								$(".content-right").html(html);
+							}
+						}
+					});
+				}
+				
+			})
+		</script>
+	</body>
+</html>

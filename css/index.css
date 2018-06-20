@@ -1,0 +1,67 @@
+.classes{width:800px;border: 1px solid rgba(187, 187, 187, 1);border: 1px solid #BBBBBB;line-height: 20px;padding:16px 10px;margin-bottom:20px;cursor: pointer;}
+.classes p{height: 23px;line-height: 20px;color: rgba(16, 16, 16, 1);color: #101010;font-size: 14px;text-align: left;font-family: Roboto;margin-bottom: 0;}
+.classes-sections{width:50%;height: 23px;line-height: 20px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: left;font-family: Roboto;margin-top: 15px;}
+.btn{margin-top: 30px;cursor: pointer;width: 80px;height: 30px;line-height: 30px;border-radius: 4px;font-size: 14px;text-align: center;font-family: Microsoft Yahei;margin-right: 20px;color: rgba(255, 255, 255, 1);color:#FFFFFF;}
+.btn-state1{background-color: rgba(204, 16, 28, 1);background-color: #CC101C;cursor: pointer;}
+.btn-state2{background-color:rgba(140, 140, 140, 1);background-color: #8C8C8C;cursor: default;pointer-events: none;}
+.btn-state3{background-color:#C8C8C8;cursor: default;pointer-events: none;}
+.fy-sec{display: inline-block;text-align: center;height: 22px;line-height: 20px;color:#8C8C8C;font-size: 14px;font-family: Roboto;cursor: pointer;width: 40px;}
+.fenye,.fenye2{width: 100%;text-align: center;padding: 10px 0 60px 0;}
+.btn-state4{display: none;}
+.shouye,.weiye{width: 120px;}
+.fy-active{color: #101010;}
+.filter{padding: 5px 0 25px 0;}
+.filter-section{width: 240px;height: 30px;line-height: 30px;position: relative;}
+.search{cursor: pointer;width: 80px;height:30px;line-height: 30px;border-radius: 4px;background-color: #E51C23;color: #ffffff;font-size: 14px;text-align: center;font-family: Microsoft Yahei;border: 1px solid rgba(187, 187, 187, 1);}
+.filter-section-left{width: 70px;display: inline-block;height: 20px;line-height: 20px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: center;font-family: Roboto;}
+.filter-section-right{display: inline-block;width: 115px;height: 30px;line-height: 30px;border-radius: 5px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: left;font-family: Roboto;border: 1px solid rgba(187, 187, 187, 1);padding-left: 5px;}
+.filter-section-right:hover{cursor: pointer;}
+.areas{display: none;position: absolute;z-index: 3;background-color: #E5E5E5;width: 600px;left: 72px;top:40px;border-radius: 5px;-webkit-box-shadow: #666 0px 0px 20px;-moz-box-shadow: #666 0px 0px 20px; box-shadow: #666 0px 0px 20px;}
+.city,.qu{width:560px;margin-left: 20px;padding-bottom: 20px;}
+.cities,.qus{margin-left: 8px;cursor: pointer;display: inline-block;padding: 0 20px;margin-top: 20px;height: 30px;line-height: 30px;border: 1px solid darkgray;text-align: center;background-color: #FFFFFF;font-size: 14px;border-radius: 15px;}
+.qu{display: none;}
+.city-active{background-color: #000000;color: #FFFFFF;}
+.finish-btn{width: 560px;}
+.finish{width: 80px;text-align: center;height: 30px;line-height: 30px;font-size: 14px;margin-top: 30px;background-color: #FFFFFF;border: 1px solid darkgray;margin-right:8px;border-radius: 5px;cursor: pointer;}
+.btn-refuse{background-color: #C8C8C8}
+
+
+.isLearned0{color: #FFFFFF;position: absolute;z-index: 40;border-bottom-right-radius: 5px;top: 0;left: 0;width:60px;height: 24px;line-height: 24px;text-align: center;font-size: 12px;font-family: Roboto;}
+.isLearned1{background-color: #22C356 ;}
+.isLearned2{background-color: #C8C8C8;}
+.video-lists{width: 258px;height: 258px;margin-bottom: 20px;margin-right: 6px;position: relative;border: 1px solid gainsboro;border-radius: 5px;overflow: hidden;}
+.video-lists-left{width: 258px;height: 190px;background-size: cover;background-position: center;background-repeat: no-repeat;position: relative;}
+.video{width: 258px;height: 190px;}
+.video-lists-right{width: 520px;}
+.video-play{width: 50px;height: 50px;cursor: pointer;margin-top: 70px;}
+.video-shadow{width: 258px;height: 190px;background-color: rgba(0,0,0,0.4);position: absolute;z-index: 31;top: 0;text-align: center;}
+.video-right-list{width: 258px;margin-bottom: 20px;}
+.video-right-title{height: 24px;line-height: 24px;color: rgba(16, 16, 16, 1);font-size: 16px;text-align: left;font-family: Roboto;margin-bottom: 16px;}
+.type{margin-right:10px;width: 40px;height: 20px;line-height: 20px;border-radius: 4px;color: rgba(255, 255, 255, 1);font-size: 12px;text-align: center;font-family: Microsoft Yahei;border: 1px solid rgba(255, 255, 255, 1);}
+.type1{background-color: rgba(214, 174, 126, 1);}
+.video-right-list-right{width:200px;height: 24px;line-height: 24px;color: rgba(100, 100, 100, 1);font-size: 14px;font-family: Roboto;overflow: hidden;text-overflow: ellipsis;white-space: nowrap ;}
+.type2{background-color: #FFAC4A;}
+.play-btn{width: 80px;height: 30px;line-height: 30px;cursor: pointer;border-radius: 4px;background-color: rgba(2, 180, 191, 1);color: rgba(255, 255, 255, 1);font-size: 14px;text-align: center;font-family: Microsoft Yahei;border: 1px solid rgba(187, 187, 187, 1);}
+.video-title{height: 30px;line-height:30px;color: rgba(16, 16, 16, 1);font-size: 18px;text-align: left;font-family: Roboto;margin-bottom: 5px;width: 240px;margin:0 auto}
+.video-type{height: 24px;line-height: 24px;color: rgba(16, 16, 16, 1);font-size: 16px;text-align: center;font-family: Roboto;}
+.video-lookup{height: 24px;line-height: 24px;color: rgba(140, 140, 140, 1);font-size: 14px;text-align: center;font-family: Roboto;cursor: pointer;}
+.video-icon{height: 14px;margin-top: 4px;margin-left: 10px;cursor: pointer;}
+.video-container{width: 240px;margin:0 auto}
+.video-url,.video-unit{display: none;}
+.classes .nolist{text-align: center;}
+.pagination-container,.pagination-container2{display: inline-block;}
+.class-title{font-weight: bold;}
+
+.class-detail-content2{margin-bottom: 20px;}
+#shadow{width: 100%;height: 100%;background: rgba(0,0,0,0.5);position: fixed;top: 0;left: 0;z-index: 3;display: none;}
+#dialog{width:360px;height: 580px;background-color: #FFFFFF;z-index: 54;position: fixed;border-radius: 10px;display: none;}
+.class-detail-section{width: 320px;margin: 0 auto;}
+.syllabusname{margin-top: 10px;width: 100px;height: 30px;line-height: 30px;background-color:#0089FF ;text-align: center;color: #FFFFFF;font-family: Roboto;font-size: 12px;border-radius: 5px;margin-right: 6px;}
+.syllabustitle{font-family: Microsoft Yahei;font-size: 13px;margin-top: 20px;}
+.coursename{font-family: Roboto;font-size: 14px;color: #646464;margin-left: 30px;margin-top: 20px;}
+.close{width: 20px;height: 20px;position: absolute;right: 10px;top: 10px;cursor: pointer;}
+.class-detail{height: 24px;line-height: 24px;color: rgba(16, 16, 16, 1);font-size: 16px;text-align: center;font-family: Roboto;margin-top: 46px;margin-bottom: 20px;}
+.class-detail-content-left{width:45% ;}
+.class-detail-content-right{width:55% ;height: 24px;line-height: 24px;color: rgba(100, 100, 100, 1);font-size: 14px;font-family: Roboto;}
+.tipss{text-align: center;padding: 100px 0 10px 0;font-family: Roboto;font-size: 14px;}
+.tipss a{color: red;}

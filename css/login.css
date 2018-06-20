@@ -1,0 +1,32 @@
+.login-content{height: 840px;line-height: 20px;background-color: rgba(173, 173, 173, 0.6);text-align: center;width: 100%;margin-top: 20px;}
+.login-name{padding-top: 110px;height: 26px;line-height: 26px;color: rgba(16, 16, 16, 1);font-size: 18px;text-align: center;font-family: Roboto;color: #101010 ;padding-bottom: 44px;}
+.login-div a{height: 22px;line-height: 22px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: right;font-family: Roboto;margin-right: 20px;color: #101010;display: inline-block;width: 120px;}
+.login-div input{border: 1px solid #BBBBBB;width: 340px;height: 55px;line-height: 20px;border-radius: 50px;color: rgba(140, 140, 140, 1);font-size: 14px;text-align: center;font-family: Roboto;border: 1px solid rgba(187, 187, 187, 1);}
+
+.login-div .submit{background-color: #E1E1E6;color: rgba(16, 16, 16, 1);font-size: 14px;font-family: Microsoft Yahei;}
+.login-div .submit2{height: 55px;border-radius: 100px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: center;font-family: Microsoft Yahei;background-color: transparent;border: none;cursor: pointer;}
+.submit-btn{margin-bottom: 0;}
+.submit{cursor: pointer;}
+
+
+
+.submit-title a,.submit-title p{display: inline-block;}
+.submit-title a{height: 22px;line-height: 22px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: right;font-family: Roboto;margin-right: 20px;color: #101010;display: inline-block;width: 120px;}
+.submit-title p{width: 350px;font-size: 18px;font-family: Roboto;color: #101010;}
+.submit-title{padding-top: 114px;padding-bottom: 42px;}
+
+.submit-container{width: 320px;padding: 0 15px;display: inline-block;color: #8C8C8C;font-size: 14px;font-family: Roboto;margin-top: 10px;}
+.submit-container p{cursor: pointer;}
+.login-div .yzm-input{width: 240px;vertical-align: middle;}
+.login-div .yzm-input2{width: 90px;margin-left: 10px;vertical-align: middle;height: 40px;border-radius: 10px;cursor: pointer;background-color: #FFFFFF;display: inline-block;line-height: 40px;color: #101010;font-family: Roboto;}
+.tip{text-align: center;}
+.tip a{display: inline-block;width: 120px;height: 30px;margin-right: 20px;vertical-align: middle;}
+.tips{height: 30px;color: #E51C23;width: 350px;display: inline-block;vertical-align: middle;font-size: 12px;}
+#second{margin: 0 10px;}
+#register-tip4{visibility: hidden;}
+#login-submit,#change-submit{margin-top: 22px;}
+.nav{width: 246.5px;}
+#shadow{width: 100%;height: 100%;background-color: rgba(0,0,0,0.5);z-index: 10;position: fixed;top: 0;left: 0;display: none;}
+#loading{height: 80px;width: 80px;z-index: 11;position: fixed;text-align: center;;display: none;}
+.load-img{height: 50px;}
+.load-text{font-size: 14px;color: #FFFFFF;font-family: arial;height: 30px;line-height: 30px;}

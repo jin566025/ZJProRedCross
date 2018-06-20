@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<title>网上学习</title>
+		<link rel="icon" href="icons/ico.ico" type="image/x-icon">
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/video-player.css" />
+		<link rel="stylesheet" href="css/media.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="main">
+				<div class="header clearfix">
+					<div class="logo fl">
+						<img class="logo-img" src="icons/logo.png" />
+						<a class="logo-name">浙江省红十字会</a>
+					</div>
+					<div class="login-register fr">
+						<img class="personal-info" src="icons/person-info.png" />
+						<div class="personal-info-nav">
+							<p onclick="window.location.href='personal-info.html'">个人资料</p>
+							<p onclick="window.location.href='personal-change-password.html'">修改密码</p>
+							<p id="quit">退出</p>
+						</div>
+					</div>
+				</div>
+				<div class="nav-container clearfix">
+					<div class="nav">培训报名</div>
+					<div class="nav nav-active">网上学习</div>
+					<div class="nav">培训大纲</div>
+					<div class="nav">个人中心</div>
+				</div>
+				<div class="content clearfix">
+					<div class="content-container">
+						<video  id="video" preload="auto" onerror="this.src='video/fun.mp4'" src="video/fun.mp4" ></video>
+						<div class="souldhide">
+							<div class="controls clearfix"> 
+								<img id="prev" class="control fl" src="icons/prev.png" />
+								<img id="play" class="control fl" src="icons/play.png" />
+								<img id="next" class="control fl" src="icons/next.png" />
+								<img id="full" class="control fr" src="icons/full.png" />
+							</div>
+							<div class="jindu"></div>
+							<div class="time">
+								<a id="times">00:00</a>
+								
+								<a>/</a>
+								<a id="all-time">00:00</a>
+	
+							</div>
+							<div class="jindutiao"></div>
+							<div class="jindutiao2"></div>
+						</div>
+						<div class="question">
+							<div class="question-container">
+								<div class="answers-content main-content">
+									
+								</div>
+								
+								<div id="submit" class="submit">确认选项</div>
+								
+							</div>
+							
+						</div>
+					</div>
+					<div class="content-desc">
+						
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+		<div class="full-question">
+			<div class="question-min absolute-center">
+				
+				<div class="answers-container2 main-content">
+					
+					
+				</div>
+				
+				<div id="submit2" class="submit submit2">确认选项</div>
+			</div>
+		</div>
+		<script src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript" src="js/url.js" ></script>
+		<script>
+			$(function(){
+
+				function setVideo(){
+					var video_name = sessionStorage.getItem("video_name");
+					var video_unit = sessionStorage.getItem("video_unit");
+					var video_type = sessionStorage.getItem("video_type");
+					var html =  '<p>【'+video_type+'】'+video_unit+' '+video_name+'</p>'+
+								'<p>基本知识，救护常识，xxxx，xxxxxxxxxx</p>'	;
+					$(".content-desc").append(html);
+				}
+				setVideo();
+				
+				var hrefs = window.location.href.split("=");
+				var video_url = hrefs[1];
+				if(video_url){
+					$("#video").attr("src",img_url+video_url);
+				}
+				var coursewareId = hrefs[2];
+
+				var timeArray = [];
+				var isLearned = false;
+				$.ajax({
+					type:"post",
+					url:url_path+"/learn/getCoursewareDetail.json",
+					data:{
+						"coursewareId":coursewareId,
+						"redUserId":redUserId
+					},
+					dataType:"json",
+					cache: false,
+					async: false,
+					success:function(data){
+						console.log(data)
+						isLearned = data.isLearned;
+						if(isLearned==false){
+							$(".jindutiao2,#next,#prev").css("pointer-events","none")
+						}
+						if(data.stateCode==0){
+							var list  = data.questionList;
+							
+							
+							if(list){
+								for(var i=0;i<list.length;i++){
+									var pause_time = list[i].minute+list[i].second;
+									timeArray.push(pause_time);
+									
+									var options = list[i].options;
+									var html2 = "";
+									var html="";
+									if(list[i].type==2){
+										html2 += '<div class="answers">'+
+													'<a class="circles " data-option=true></a>'+
+													'<a class="answers-option">正确</a>'+
+												 '</div>'+
+												 '<div class="answers">'+
+													'<a class="circles " data-option=false></a>'+
+													'<a class="answers-option">错误</a>'+
+												 '</div>'
+												 
+										html = '<div class="answers-section" data-questionid="'+list[i].questionId+'">'+
+													'<p class="video_answers">'+list[i].answers+'</p>'+
+													'<p class="video_minute">'+list[i].minute+'</p>'+
+													'<p class="video_second">'+list[i].second+'</p>'+
+													'<p class="video_type">'+list[i].library+'</p>'+
+													'<p class="test-number">'+list[i].title+'</p>'+
+													'<img class="option-img" src="'+img_url+list[i].titleImgUrl+'" />'+
+													'<div class="answers-container">'+html2+'</div>'+
+												'</div>';
+										
+									}else{
+										if(options){
+											for(var j=0;j<options.length;j++){
+												var answer_cls;
+												if(j==0){
+													answer_cls="A"
+												}else if(j==1){
+													answer_cls="B"
+												}else if(j==2){
+													answer_cls="C"
+												}else if(j==3){
+													answer_cls="D"
+												}else if(j==4){
+													answer_cls="E"
+												}else if(j==5){
+													answer_cls="F"
+												}else if(j==6){
+													answer_cls="G"
+												}else if(j==7){
+													answer_cls="H"
+												}
+												html2 += '<div class="answers">'+
+															'<a class="circles " data-option='+answer_cls+'></a>'+
+															'<a class="answers-option">'+options[j].option+'.'+options[j].content+'</a>'+
+														 '</div>'
+											}
+										}
+										
+										html = '<div class="answers-section" data-questionid="'+list[i].questionId+'">'+
+														'<p class="video_answers">'+list[i].answers+'</p>'+
+														'<p class="video_minute">'+list[i].minute+'</p>'+
+														'<p class="video_second">'+list[i].second+'</p>'+
+														'<p class="video_type">'+list[i].library+'</p>'+
+														'<p class="test-number">'+list[i].title+'</p>'+
+														'<div class="answers-container">'+html2+'</div>'+
+													'</div>';
+									}
+									
+									$(".main-content").append(html);
+								}
+							}
+							
+						}
+					},
+					error:function(){}
+				});
+				
+
+				var videoH = $("#video").height();
+				var videoW = $("#video").width();
+				var video = getVideo();
+				
+				var hasCalled = true;
+				setTimeout(function(){
+					var time = getTime();
+					var times = getFormatTime(time);
+					//显示所有时间
+					$("#all-time").html(times.m+":"+times.s);
+				},500)
+				function getFormatTime(time){
+					var m = parseInt(time/60);
+					if(m<10){
+						m = "0"+m;
+					}
+					var s = parseInt(time%60);
+					if(s<10){
+						s = "0"+s
+					}
+					var times = {
+						m:m,
+						s:s
+					}
+					return times
+				}
+				//移动进度条
+				function move_jindu(precent,videoW){
+					var videoW = $("#video").width();
+					var timeW = $(".time").width();
+					var timeP = $(".time").position();
+					var time = $(".time");
+					var jindu = $(".jindu");
+					var jindutiao = $(".jindutiao");
+					jindu.css("left",precent*videoW+"px");
+					jindutiao.css("width",precent*videoW+"px");
+					if(timeP.left<videoW-timeW-10){
+						time.css("left",precent*videoW+"px")
+					}
+				}
+				function play(v){
+					v.play();
+					$("#play").attr("src","icons/pause.png")
+				}
+				function pause(v){
+					v.pause();
+					$("#play").attr("src","icons/play.png")
+				}
+				function getCurrTime(){
+					var video = getVideo();
+					var currTime = video.currentTime;
+					return currTime;
+				}
+				function getPrecent(){
+					var currTime = getCurrTime();
+					var time = getTime();
+					var precent = currTime/time;
+					return precent
+				}
+				function getVideo(){
+					var video = document.querySelector("video");
+					return video;
+				}
+				function getTime(){
+					var time =video.duration;
+					return time;
+				}
+				Array.prototype.in_array=function(e){
+					var r=new RegExp(','+e+',');
+					return (r.test(','+this.join(this.S)+','));
+				};
+				
+				setTimeout(function(){
+					var answers = $(".answers-section");
+					for(var i=0;i<answers.length/2;i++){
+						var question_video_minute = parseInt($(answers[i]).find(".video_minute").text())*60;
+						var question_video_second = parseInt($(answers[i]).find(".video_second").text());
+						var question_time = question_video_minute+question_video_second;
+						timeArray.push(question_time);
+					}
+				},1000)
+				function answer_question(t,array){
+					var index = array.indexOf(parseInt(t));
+
+					if(index!==-1){
+						$(".answers-section").removeClass("isshow");
+						$($(".answers-section")[index]).addClass("isshow");
+						pause(video);
+						if($("#video").width()==996){
+							$(".question").fadeIn(500)
+						}else{
+							$(".full-question").fadeIn(500);
+							$(".container").hide();
+							exitFullscreen()
+						}
+					}
+					
+				}
+				//进入全屏
+				function requestFullScreen() {
+				    var de = document.documentElement;
+				    var video = getVideo();
+				    if (de.requestFullscreen) {
+				        video.requestFullscreen();
+				    } else if (de.mozRequestFullScreen) {
+				        video.mozRequestFullScreen();
+				    } else if (de.webkitRequestFullScreen) {
+				        video.webkitRequestFullScreen();
+				    }
+				}
+				//退出全屏
+				function exitFullscreen() {
+				    var de = document;
+				    var video = getVideo();
+				    if (de.exitFullscreen) {
+				        de.exitFullscreen();
+				    } else if (de.mozCancelFullScreen) {
+				        de.mozCancelFullScreen();
+				    } else if (de.webkitCancelFullScreen) {
+				        de.webkitCancelFullScreen();
+				    }
+				}
+				
+				
+				video.ontimeupdate = function(){ 
+					var currTime = getCurrTime();
+					var currentTime = getFormatTime(currTime);
+					$("#times").html(currentTime.m+":"+currentTime.s);
+					var precent = getPrecent();
+					move_jindu(precent,videoW);
+					if(hasCalled && isLearned==false){
+						answer_question(currTime,timeArray);
+					}
+				};
+				video.addEventListener("ended",function(){
+			        video.currentTime = 0;
+			        $("#times").html("00:00");
+					move_jindu(0,videoW);
+					var time = $(".time");
+					time.css("left","0px")
+					pause(video)
+			    })
+				//播放
+				$("#play").click(function(){
+					if(video.paused){
+						play(video);
+					}else{
+						pause(video);
+					}
+				})
+				//全屏播放
+				$("#full").click(function(){
+					requestFullScreen();
+				})
+				//快进
+				$("#next").click(function(){
+					var now_time = video.currentTime+5;
+					console.log(now_time)
+					video.currentTime = now_time;
+				})
+				//快退	
+				$("#prev").click(function(){
+					var now_time = video.currentTime-5;
+					video.currentTime = now_time;
+				})
+				
+				
+				//继续播放
+				$("#submit2").click(function(){
+					hasCalled = false;
+					play(video);
+					$(".full-question").fadeOut(500);
+					$(".container").show();
+					requestFullScreen();
+					setTimeout(function(){
+						hasCalled=true
+					},3000)
+				})
+				$(".jindutiao2").click(function(e){
+					var jindutiao2_x = e.originalEvent.x || e.originalEvent.layerX || 0; 
+					var videoLeft = $("#video").offset().left;
+					var distance = jindutiao2_x-videoLeft;
+					var precent2 = distance/videoW;
+					var duration = $("#video")[0].duration;
+					
+					video.currentTime = precent2*duration;
+					move_jindu(precent2,videoW);
+				})
+				$(".submit").click(function(){
+					var question = $(".isshow");
+					var answers_option = question.find(".video_answers").text();
+					var checkedArray = $(".circles-active");
+					var checked = [];
+					console.log(checked)
+					for(var i=0;i<checkedArray.length;i++){
+						var option_type = $(checkedArray[i]).attr("data-option");
+						checked.push(option_type);
+					}
+					var correct;
+					if(answers_option.toString() == checked){
+						correct=true;
+						
+					}else{
+						correct=false;
+						alert("答案错误，请重新选择")
+						return false;
+					}
+					var subjectId = question.data("questionid");
+					var video_type =parseInt(question.find(".video_type").text());
+					
+					var data_array={};
+					data_array.coursewareId = parseInt(coursewareId);
+					data_array.subjectId = subjectId;
+					data_array.type = video_type;
+					data_array.redUserId = parseInt(redUserId);
+					data_array.correct = correct;
+					$.ajax({
+						type:"post",
+						url:url_path+"/learn/uploadCoursewareSubject.json",
+						data:data_array,
+						dataType:"json",
+						success:function(data){
+							$(".circles").removeClass("circles-active")
+						},
+						error:function(){}
+					});
+					hasCalled = false;
+					play(video);
+					$(".question").fadeOut(500);
+					setTimeout(function(){
+						hasCalled=true
+					},1000)
+				})
+				$(".main-content").on("click",".circles",function(){
+					if($(this).hasClass("circles-active")){
+						$(this).removeClass("circles-active")
+					}else{
+						$(this).addClass("circles-active")
+					}
+					
+				})
+				
+			})
+		</script>
+		<script type="text/javascript" src="js/href.js" ></script>
+		<script type="text/javascript" src="js/checkUser.js" ></script>
+	</body>
+</html>

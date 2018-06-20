@@ -1,0 +1,46 @@
+.enroll-position{height: 23px;line-height: 20px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: left;font-family: Roboto;padding-bottom: 15px ;}
+.enroll-content{width: 992px;padding-bottom: 30px;}
+.enroll-content-title{height: 60px;line-height:60px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: center;font-family: Roboto;border-bottom: 1px solid darkgray;}
+
+.input-group-part{width: 50%;margin-top: 15px;}
+.input-group-part-left{margin-left: 20%;width: 20%;color: rgba(16, 16, 16, 1);font-size: 14px;font-family: Roboto;height: 30px;line-height:30px;}
+.input-group-part-right{width: 44%;padding-left: 1%;border-radius: 5px;border: 1px solid rgba(187, 187, 187, 1);height: 30px;line-height: 30px;}
+.input-group-part-right2{width: 45%;border-radius: 5px;height: 30px;line-height: 30px;border: 1px solid rgba(187, 187, 187, 1);font-family: Roboto;}
+.label-left,.label-right{display: inline-block;}
+.label-left{width: 16px;height: 16px;border: 2px solid darkgray;border-radius: 3px;vertical-align: middle;margin-right: 20px;cursor: pointer;background-image:url(../icons/yes.png) ;background-repeat: no-repeat;background-position: center;background-size: contain;}
+.label-right{font-size: 14px;text-align: center;font-family: Roboto;vertical-align: middle;}
+.labels{margin: 30px 0;text-align: center;}
+.finish{cursor: pointer;background-color: #4F95FF;height: 30px;line-height: 30px;width: 100px;margin: 0 auto;border-radius: 4px;color: #FFFFFF;font-size: 14px;text-align: center;font-family: Microsoft Yahei;}
+
+.input-group{margin-bottom: 40px;}
+.enroll-table{border-collapse:collapse;text-align: center;width: 100%;}
+.enroll-table td{color: rgba(16, 16, 16, 1);font-size: 14px;text-align: center;font-family: Roboto;}
+.type{width: 30px;padding: 10px 0;height: 60px;}
+.type-input{padding: 10px 0;height: 60px;}
+.type-input input{border: none;width: 90%;height: 40px;}
+.finish-container{width:990px;padding: 20px 0;border: 1px solid darkgray;border-top: none;}
+.title{padding: 26px 0;background-color: #E51C23;color: #FFFFFF;border: 1px solid #E51C23;}
+.uppic-container{position: relative;}
+.uppic-span{cursor: pointer;width: 80px;height: 30px;border-radius: 4px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: center;font-family: Microsoft Yahei;border: 1px solid darkgray;line-height: 30px;}
+.uppic{opacity: 0;}
+.enroll-position-a{cursor: pointer;}
+.enroll-content-title{background-color: #E51C23;color: #FFFFFF;border: none;}
+.enroll-main{border: 1px solid rgba(187, 187, 187, 1);border-top: none;padding:24px 0;}
+.card-type{padding: 4px 0;width: 80%;}
+.enroll-table .title{color: #FFFFFF;}
+.tips{width: 50%;margin-left: 40%;color: #E51C23;font-family: Roboto;height: 20px;line-height: 20px;font-size: 12px;visibility: hidden;}
+
+
+#shadow{width: 100%;height: 100%;background-color: rgba(0,0,0,0.5);position: fixed;top: 0;left: 0;z-index: 3;display: none;}
+#dialog{z-index: 4;background-color: #FFFFFF;border-radius: 10px;position: fixed;display: none;width: 400px;height: 400px;}
+#close{height: 22px;width: 22px;position: absolute;right: 10px;top: 10px;cursor: pointer;}
+.dialog-title{height: 24px;line-height: 24px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: center;font-family: Roboto;margin-top: 35px;}
+.dialog-container{width: 280px;margin: 0 auto;}
+.dialog-section a{display: inline-block;width: 60px;height: 24px;line-height: 24px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: left;font-family: Roboto;}
+.phone-number{width: 200px;height:30px;line-height: 30px;border-radius: 5px;text-align: center;border: 1px solid rgba(187, 187, 187, 1);font-size: 13px;font-family: Roboto;}
+.dialog-yzm{width: 120px;height: 30px;line-height: 30px;border-radius: 5px;text-align: center;border: 1px solid rgba(187, 187, 187, 1);font-size: 13px;font-family: Roboto;}
+.get-yzm{width: 70px;margin-left:8px;cursor: pointer;background-color: #FFFFFF;height: 30px;line-height: 30px;border-radius: 4px;color: rgba(16, 16, 16, 1);font-size: 12px;text-align: center;font-family: Microsoft Yahei;border: 1px solid rgba(187, 187, 187, 1);}
+.dialog-section{margin-top: 20px;}
+.dialog-submit{margin-top: 30px;cursor: pointer;height: 30px;line-height: 30px;border-radius: 4px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: center;font-family: Microsoft Yahei;border: 1px solid rgba(187, 187, 187, 1);}
+#dialog-tip{color: #E51C23;font-family: Roboto;height: 26px;line-height: 26px;font-size: 12px;}
+.info-tips{height:36px;line-height:36px;color: #E51C23;font-family: Roboto;font-size: 12px;margin-left: 5px;}

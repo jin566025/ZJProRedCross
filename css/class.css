@@ -1,0 +1,18 @@
+.enroll-position{height: 23px;line-height: 20px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: left;font-family: Roboto;padding-bottom: 15px ;}
+.enroll-content{width: 992px;border: 1px solid darkgray;}
+.enroll-content-title{background-color: #E51C23;height: 65px;line-height:65px;color: #FFFFFF;font-size: 18px;text-align: center;font-family: Roboto;border-bottom: 1px solid darkgray;}
+.class-detail{width: 94%;margin: 0 auto;}
+.class-detail-title-left{color: rgba(16, 16, 16, 1);font-size: 18px;text-align: left;font-family: Roboto;height: 60px;line-height:60px;}
+.class-detail-title-right{color: rgba(16, 16, 16, 1);font-size: 14px;font-family: Roboto;height:60px;line-height: 60px;}
+.class-detail-lists-left,.class-detail-lists-right{height:50px;line-height:50px;color: rgba(16, 16, 16, 1);font-size: 14px;font-family: Roboto;}
+.class-detail-lists-left{width:40%;}
+.class-detail-lists-right{width: 30%;}
+
+.class-detail-content{padding-bottom: 10px;border-bottom: 1px solid darkgray;width: 100%;}
+.class-detail-content:last-child{border-bottom: none;}
+.number{margin-right: 20px;}
+.types{height: 26px;line-height: 26px;color: rgba(16, 16, 16, 1);font-size: 14px;font-family: Roboto;width: 60px;margin-top: 12px;text-align: center;border-radius:5px ;color: #FFFFFF;}
+.hides{display: block;}
+.types1{background-color: #FF9800;}
+.types2{background-color: #D6AE7E;}
+#nav1{cursor: pointer;}

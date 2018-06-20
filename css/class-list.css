@@ -1,0 +1,5 @@
+.class-list{width: 800px;text-align: center;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: center;font-family: Roboto;}
+.td1{width: 200px;}
+.td2{width:150px ;}
+.class-list td{height: 80px;line-height: 80px;}
+.class-list-tr{cursor: pointer;}

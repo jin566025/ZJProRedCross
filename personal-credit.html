@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<title>我的考试</title>
+		<link rel="icon" href="icons/ico.ico" type="image/x-icon">
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/personal.css" />
+		<link rel="stylesheet" href="css/paging.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="main">
+				<div class="header clearfix">
+					<div class="logo fl">
+						<img class="logo-img" src="icons/logo.png" />
+						<a class="logo-name">浙江省红十字会</a>
+					</div>
+					<div class="login-register fr">
+						<img class="personal-info" src="icons/person-info.png" />
+						<div class="personal-info-nav">
+							<p onclick="window.location.href='personal-info.html'">个人资料</p>
+							<p onclick="window.location.href='change-password.html'">修改密码</p>
+							<p id="quit">退出</p>
+						</div>
+					</div>
+				</div>
+				<div class="nav-container clearfix">
+					<div class="nav">培训报名</div>
+					<div class="nav">网上学习</div>
+					<div class="nav">培训大纲</div>
+					<div class="nav nav-active">个人中心</div>
+				</div>
+				<div class="content clearfix">
+					<div class="content-left fl">
+						<div class="content-left-nav" onclick="window.location.href='personal.html'">我的课程</div>
+						<div class="content-left-nav" onclick="window.location.href='personal-score.html'">我的学分</div>
+						<div class="content-left-nav" onclick="window.location.href='personal-test.html'">我的考试</div>
+						<div class="content-left-nav" onclick="window.location.href='personal-result.html'">我的成绩</div>
+						<div class="content-left-nav content-left-nav-active">我的证书</div>
+						<div class="content-left-nav" onclick="window.location.href='personal-check.html'">培训考核</div>
+						<div class="content-left-nav" onclick="window.location.href='check-table1.html'">成人心肺复苏实操考核表</div>
+						<div class="content-left-nav" onclick="window.location.href='check-table2.html'">外出血救护实操考核表</div>
+						<div class="content-left-nav" onclick="window.location.href='check-table3.html'">四肢骨折救护实操考核表</div>
+					</div>
+					<div class="content-right fr">
+						<div class="personal-section">
+							<div class="personal-section-title clearfix">
+								<div class="personal-section-title-left fl">宁波红十字会颁发</div>
+								<div class="personal-section-title-right fr">2018-05-29</div>
+							</div>
+							<img class="personal-section-img personal-section-img1" src="img/test3.png" />
+							<img class="personal-section-img personal-section-img2" src="img/test3.png" />
+						</div>
+						
+
+					</div>
+					
+				</div>
+				
+				
+			</div>
+		</div>
+		<div id="totalPage" style="display: none;"></div>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript" src="js/href.js" ></script>
+		<script type="text/javascript" src="js/checkUser.js" ></script>
+		<script type="text/javascript" src="js/url.js" ></script>
+		<script type="text/javascript" src="js/paging.js" ></script>
+		<script>
+			$(function(){
+				var pageNo = 1;
+				var pageSize = 10;
+				//getPaperList(redUserId,pageNo,pageSize);
+				
+				$('#totalPage').on('DOMNodeInserted',function(){
+					var totalSize = parseInt($('#totalPage').text());
+			    	var totalPage = Math.ceil(totalSize/pageSize);
+			        $("#page").paging({
+						pageNo:pageNo,
+						totalPage: totalPage,
+						totalSize: totalSize,
+						callback: function(pageNo) {
+							getPaperList(redUserId,pageNo,pageSize);
+						}
+					})
+			    })
+				
+				function getPaperList(redUserId,pageNo,pageSize){
+					$.ajax({
+						type:"post",
+						url:url_path+"/paper/getPaperList.json",
+						data:{
+							"redUserId":redUserId,
+							"pageNo":pageNo,
+							"pageSize":pageSize
+						},
+						dataType:"json",
+						success:function(data){
+
+							console.log(data)
+							if(data.msg=="成功"){
+								var list = data.listDTO;
+								for(var i=0;i<list.length;i++){
+									var html = '<div class="content-section">'+
+													'<p>'+
+														'<a class="section-type">【救护员初训考试】</a>'+
+														'<a class="section-name">'+list[i].title+'</a>'+
+													'</p>'+
+													'<div class="section-infos clearfix">'+
+														'<div class="section-info">'+
+															'<a>满分：</a>'+
+															'<a>'+list[i].totalmark+'分</a>'+
+														'</div>'+
+														'<div class="section-info">'+
+															'<a>通过分数：</a>'+
+															'<a>'+list[i].passmark+'分</a>'+
+														'</div>'+
+														'<div class="section-info">'+
+															'<a>考试时间：</a>'+
+															'<a>'+list[i].papertime+'分钟</a>'+
+														'</div>'+
+														'<div class="section-info">'+
+															'<a>剩余次数：</a>'+
+															'<a>'+list[i].residuetime+'次</a>'+
+														'</div>'+
+														'<div class="section-info">'+
+															'<a>学习学时：</a>'+
+															'<a>'+list[i].learnperiod+'学时</a>'+
+														'</div>'+
+														'<div class="section-info">'+
+															'<a>学习学分：</a>'+
+															'<a>'+list[i].learncredit+'学分</a>'+
+														'</div>'+
+													'</div>'+
+													'<div class="submit-btns clearfix">'+
+														'<div class="fr totest">开始考试</div>'+
+													'</div>'+
+												'</div>';
+									$(".content-right").append(html);
+								}
+								
+							}else if(data.stateCode==102){
+								var html = '<div class="content-section">'+
+												'<p class="section-score">'+data.msg+'</p>'+
+											'</div>';
+								$(".content-right").append(html)
+							}else if(data.stateCode==225){
+								var html = '<div class="content-section">'+
+												'<p class="section-score">'+data.msg+'</p>'+
+											'</div>';
+								$(".content-right").append(html)
+							}else if(data.msg=="参数不能为NULL或空"){
+								var html = '<p class="fail"><a href="login.html">请先登录</a></p>'
+								$(".content-right").html(html);
+							}
+						},
+						error:function(){}
+					});
+				}
+				
+			})
+		</script>
+	</body>
+</html>

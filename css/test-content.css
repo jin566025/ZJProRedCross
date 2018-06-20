@@ -1,0 +1,34 @@
+.main{width: 958px;border: 1px solid darkgray;height:710px;margin-top: 110px;position: relative;}
+.main-left,.main-right{height: 710px;}
+.main-left{width: 642px;}
+.main-right{width: 315px;border-left: 1px solid darkgray;}
+.test-table{width: 315px;text-align: center;}
+.test-table td{height: 60px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: center;font-family: Roboto;}
+.submit{cursor: pointer;margin: 0 auto;margin-top:40px ;width: 80px;height: 30px;line-height: 30px;border-radius: 4px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: center;font-family: Microsoft Yahei;border: 1px solid rgba(187, 187, 187, 1);}
+.test-container{width: 500px;margin-left: 50px;height: 700px;}
+.test-time{color: rgba(16, 16, 16, 1);font-size: 14px;font-family: Roboto;height: 60px;line-height: 60px;margin-bottom: 50px;}
+.test-number{color: rgba(16, 16, 16, 1);font-size: 14px;text-align: left;font-family: Roboto;margin-bottom: 40px;}
+.answers input{width: 20px;height:20px;vertical-align: middle;margin-right: 10px;}
+.answers label{height: 20px;line-height: 20px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: left;font-family: Roboto;vertical-align: middle;}
+.answers{margin-bottom: 40px;}
+.pagi{text-align: center;}
+.paginate{display: inline-block;width: 110px;height: 50px;line-height:50px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: center;font-family: Roboto;border: 1px solid rgba(187, 187, 187, 1);cursor: pointer;margin: 100px 20px 0 20px;}
+.answers-container{height: 300px;}
+.judge-answers{display: inline-block;width: 40%;}
+.judge-icon{width: 24px;height: 24px;vertical-align: middle;}
+.judge-container2 .test-number img{height: 160px;height: 160px;margin-top: 20px;display: block;}
+.test-number video{height: 200px;display: block;margin: 30px 0 30px 30px;}
+
+.judge-icon2{width: 100px;height: 100px;vertical-align: top;}
+.tips{position: absolute;height: 500px;top: 105px;width: 840px;left: 50px;background-color: rgba(166,166,166,0.9);border-radius: 5px;display: none;}
+.tips-title{height: 52px;line-height: 52px;color: rgba(16, 16, 16, 1);font-size: 36px;text-align: center;font-family: Roboto;margin: 100px 0 50px 0;}
+.tips-score{height: 104px;line-height: 104px;color: rgba(229, 28, 35, 1);font-size: 72px;text-align: center;font-family: Roboto;}
+.tips-score2{height: 20px;line-height: 20px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: center;font-family: Roboto;}
+.btns{text-align: center;margin-top: 80px;}
+.tips-btn{height: 30px;border-radius: 4px;color: rgba(16, 16, 16, 1);font-size: 14px;text-align: center;font-family: Microsoft Yahei;line-height: 30px;background-color: #FFFFFF;display: inline-block;padding: 0 10px;margin: 0 30px;cursor: pointer;}
+.questions{display: none;}
+.question-show{display: block;}
+.prev{display: none;}
+td{cursor: pointer;}
+
+.test-section{width: 62px;border-right: 1px solid gainsboro;float: left;height: 60px;line-height: 60px;font-size: 14px;border-bottom: 1px solid gainsboro;}

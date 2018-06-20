@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<title>网上学习</title>
+		<link rel="icon" href="icons/ico.ico" type="image/x-icon">
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/video-list.css" />
+		<link rel="stylesheet" href="css/paging.css" /> 
+
+	</head>
+	<body>
+		<div class="container">
+			<div class="main">
+				<div class="header clearfix">
+					<div class="logo fl">
+						<img class="logo-img" src="icons/logo.png" />
+						<a class="logo-name">浙江省红十字会</a>
+					</div>
+					<div class="login-register fr">
+						<img class="personal-info" src="icons/person-info.png" />
+						<div class="personal-info-nav">
+							<p onclick="window.location.href='personal-info.html'">个人资料</p>
+							<p onclick="window.location.href='personal-change-password.html'">修改密码</p>
+							<p id="quit">退出</p>
+						</div>
+					</div>
+				</div>
+				<div class="nav-container clearfix">
+					<div class="nav">培训报名</div>
+					<div class="nav nav-active">网上学习</div>
+					<div class="nav">培训大纲</div>
+					<div class="nav">个人中心</div>
+				</div>
+				<div class="content clearfix">
+					<div class="content-left fl">
+						<div class="content-left-nav content-left-nav-active">全部</div>
+						<div class="content-left-nav" data-typeid="1">专题培训</div>
+						<div class="content-left-nav" data-typeid="2">救护员初训</div>
+						<div class="content-left-nav" data-typeid="3">救护员复训</div>
+						<div class="content-left-nav" data-typeid="4">二级救护师初训</div>
+						<div class="content-left-nav" data-typeid="5">二级救护师复训</div>
+						<div class="content-left-nav" data-typeid="6">三级救护师初训</div>
+						<div class="content-left-nav" data-typeid="7">三级救护师复训</div>
+						<div class="content-left-nav" data-typeid="8">AHA培训</div>
+						<div class="content-left-nav" data-typeid="9">骨干班</div>
+					</div>
+					<div class="content-right fr">
+						<div class="filter clearfix">
+							<div class="filter-section filter-section2 fl" style="">
+								<a class="filter-section-left">单元名称：</a>
+								<select class="filter-section-right" id="unitId">
+									<option style="display: none;">请选择单元名称</option>
+									<option value="1">救护概论</option>
+									<option value="2">心肺复苏</option>
+									<option value="3">创伤救护</option>
+									<option value="4">常见急症</option>
+								</select>
+							</div>
+							<div class="filter-section filter-section2 fl">
+								<a class="filter-section-left">课程名称：</a>
+								<select class="filter-section-right" id="courseId">
+									<option style="display: none;">请选择课程名称</option>
+									<option value="1">救护原则</option>
+									<option value="2">救护程序</option>
+									<option value="3">应急救护的注意事项</option>
+									<option value="4">救护员的心理调整和能力评估</option>
+								</select>
+							</div>
+							<div class="filter-section fr search">确定</div>
+						</div>
+						<div class="video-list clearfix">
+							
+							
+						</div>
+						<div class="fenye">
+							<div id="page" class="page_div"></div>
+						</div>
+					</div>
+					
+				</div>
+				
+				
+			</div>
+		</div>
+		<div id="shadow"></div>
+		<div id="dialog" class="absolute-center">
+			<img src="icons/close.png" class="close" />
+			<p class="class-detail"></p>
+			<div class="class-detail-content">
+				<div class="class-detail-section">
+					<p class="syllabustitle">适用类型：</p>
+					<div class="clearfix syllabusList" id="syllabusList1">
+						
+					</div>
+				</div>
+				<div class="class-detail-section">
+					<p class="syllabustitle">课件课程：</p>
+					<div class="clearfix syllabusList"  id="syllabusList2">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="totalPage" style="display: none;"></div>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript" src="js/href.js" ></script>
+		<script type="text/javascript" src="js/url.js" ></script>
+		<script type="text/javascript" src="js/paging.js" ></script>
+		<script type="text/javascript" src="js/video-list.js" ></script>
+		<script type="text/javascript" src="js/checkUser.js" ></script>
+	</body>
+</html>

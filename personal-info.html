@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<title>我的考试</title>
+		<link rel="icon" href="icons/ico.ico" type="image/x-icon">
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/personal.css" />
+		<link rel="stylesheet" href="css/lyz.calendar.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="main">
+				<div class="header clearfix">
+					<div class="logo fl">
+						<img class="logo-img" src="icons/logo.png" />
+						<a class="logo-name">浙江省红十字会</a>
+					</div>
+					<div class="login-register fr">
+						<img class="personal-info" src="icons/person-info.png" />
+						<div class="personal-info-nav">
+							<p onclick="window.location.href='personal-info.html'">个人资料</p>
+							<p onclick="window.location.href='personal-change-password.html'">修改密码</p>
+							<p id="quit">退出</p>
+						</div>
+					</div>
+				</div>
+				<div class="nav-container clearfix">
+					<div class="nav">培训报名</div>
+					<div class="nav">网上学习</div>
+					<div class="nav">培训大纲</div>
+					<div class="nav nav-active">个人中心</div>
+				</div>
+				<div class="content clearfix">
+					<div class="content-left fl">
+						<div class="content-left-nav" onclick="window.location.href='personal.html'">我的课程</div>
+						<div class="content-left-nav" onclick="window.location.href='personal-score.html'">我的学分</div>
+						<div class="content-left-nav" onclick="window.location.href='personal-test.html'">我的考试</div>
+						<div class="content-left-nav" onclick="window.location.href='personal-result.html'">我的成绩</div>
+						<div class="content-left-nav" onclick="window.location.href='personal-credit.html'">我的证书</div>
+						<div class="content-left-nav" onclick="window.location.href='personal-check.html'">培训考核</div>
+						<div class="content-left-nav" onclick="window.location.href='check-table1.html'">成人心肺复苏实操考核表</div>
+						<div class="content-left-nav" onclick="window.location.href='check-table2.html'">外出血救护实操考核表</div>
+						<div class="content-left-nav" onclick="window.location.href='check-table3.html'">四肢骨折救护实操考核表</div>
+
+					</div>
+					<div class="content-right fr">
+						<div class="personal-info-section">
+							<img class="info-icon" src="icons/personal.png" />
+							<a class="icon-a">个人资料</a>
+						</div>
+						<div class="section-container1">
+							
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">姓名：  </div>
+								<div class="info-sections-right fl">
+									<input id="name" type="text" placeholder="请输入姓名" />
+								</div>
+								<div class="info-tips info-tips1 fl"></div>
+							</div>
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">证件类型：  </div>
+								<div class="info-sections-right fl">
+									<select id="idType">
+										<option value="1">身份证</option>
+										<option value="2">护照 </option>
+										<option value="3">军官证</option>
+										<option value="4">驾照</option>
+									</select>
+								</div>
+								<div class="info-tips info-tips2 fl"></div>
+							</div>
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">证件号：  </div>
+								<div class="info-sections-right fl">
+									<input id="idNumber" type="text" placeholder="请输入证件号" />
+								</div>
+								<div class="info-tips info-tips3 fl"></div>
+							</div>
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">  </div>
+								<div class="info-sections-right fl">
+									<div class="info-submit" id="next">下一步</div>
+								</div>
+							</div>
+						</div>
+						<form >
+						<div class="section-container2">
+							<input type="text" id="userId" name="userId" style="display: none;" />
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">姓名：  </div>
+								<div class="info-sections-right fl" id="name2">
+									
+								</div>
+							</div>
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">身份证件类型：  </div>
+								<div class="info-sections-right fl" id="idType2">
+									
+								</div>
+							</div>
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">证件照：  </div>
+								<div class="info-sections-right fl" id="imageUrl-img">
+									<img id="imageUrl" src="icons/person-info.png" />
+									<input type="file" name="userImg" onchange="upimg(this)" id="imageUrl-input" />
+								</div>
+							</div>
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">证件号：  </div>
+								<div class="info-sections-right fl" id="idNumber2">
+									
+								</div>
+							</div>
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">手机号：  </div>
+								<div id="phone" class="info-sections-right fl">
+									
+								</div>
+								<div id="send-yzm2" class="send-yzm fl">绑定手机号</div>
+								<input type="text" name="phone" id="phone2" style="display: none;" />
+							</div>
+
+							
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">性别：  </div>
+								<div class="info-sections-right fl clearfix">
+									<a class="sex">男</a>
+									<a data-sexid="0" class="sex-circle"></a>
+									<a class="sex">女</a>
+									<a data-sexid="1" class="sex-circle"></a>
+								</div>
+								<input type="text" name="sex" style="display: none;" id="sex" />
+							</div>
+							
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">出生年月：  </div>
+								<div id="dataSelect" class="info-sections-right fl">
+									<input id="bornDate" readonly="readonly" type="text" placeholder="请选择出生日期" />
+									<input type="text" name="bornDate" style="display: none;" id="bornDate2" />
+								</div>
+							</div>
+							
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">民族：  </div>
+								<div class="info-sections-right fl">
+									<input id="national" name="national" type="text" placeholder="请输入民族" />
+								</div>
+							</div>
+							
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">工作单位：  </div>
+								<div class="info-sections-right fl">
+									<input id="unit" name="unit" type="text" placeholder="请输入工作单位" />
+								</div>
+							</div>
+							
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">文化程度：  </div>
+								<div class="info-sections-right fl">
+									<input id="culture" name="culture" type="text" placeholder="请输入文化程度" />
+								</div>
+							</div>
+							
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">职业：  </div>
+								<div class="info-sections-right fl">
+									<input id="professional" name="professional" type="text" placeholder="请输入职业" />
+								</div>
+							</div>
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">职称：  </div>
+								<div class="info-sections-right fl">
+									<input id="positionalTitle" name="positionalTitle" type="text" placeholder="请输入职称" />
+								</div>
+							</div>
+							
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">联系地址：  </div>
+								<div class="info-sections-right fl">
+									<input id="address" name="address" type="text" placeholder="请输入联系地址" />
+								</div>
+							</div>
+							
+						
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">固定电话：  </div>
+								<div class="info-sections-right fl">
+									<input id="fixedTel" name="fixedTel" type="text" placeholder="请输入固定电话" />
+								</div>
+							</div>
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">电子邮箱：  </div>
+								<div class="info-sections-right fl">
+									<input id="email" name="email" type="text" placeholder="请输入电子邮箱" />
+								</div>
+							</div>
+							
+							<div class="personal-info-sections clearfix">
+								<div class="info-sections-left fl">  </div>
+								<div class="info-sections-right fl">
+									<div class="info-submit" id="modifyUserInfo">确定</div>
+								</div>
+							</div>
+						</div>
+						</form>
+						
+						
+					</div>
+					
+				</div>
+				
+				
+			</div>
+		</div>
+		
+		<div id="shadow"></div>
+		<div id="dialog" class="absolute-center">
+			<img id="close" src="icons/close.png" />
+			<p class="dialog-title">绑定手机号</p>
+			<div class="dialog-container">
+				<div class="dialog-section">
+					<a>手机号：</a>
+					<input class="phone-number" type="tel" placeholder="请输入手机号" />
+				</div>
+				<div class="dialog-section">
+					<a>验证码：</a>
+					<input class="dialog-yzm" type="tel" placeholder="请输入验证码" />
+					<button id="send-yzm" class="get-yzm">获取验证码</button>
+				</div>
+				<div class="dialog-submit">验证</div>
+				<p id="dialog-tip"></p>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript" src="js/href.js" ></script>
+		<script type="text/javascript" src="js/url.js" ></script>
+		<script type="text/javascript" src="js/checkUser.js" ></script>
+		<script type="text/javascript" src="js/lyz.calendar.min.js" ></script>
+		<script type="text/javascript" src="js/personal.js" ></script>
+		<script>
+
+			$("#bornDate").calendar({
+
+	            controlId: "divDate",                                 // 弹出的日期控件ID，默认: $(this).attr("id") + "Calendar"
+	
+	            speed: 200,                                           // 三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000),默认：200
+	
+	            complement: true,                                     // 是否显示日期或年空白处的前后月的补充,默认：true
+	
+	            readonly: true,                                       // 目标对象是否设为只读，默认：true
+	
+	            upperLimit: new Date(),                               // 日期上限，默认：NaN(不限制)
+	
+	            lowerLimit: new Date("1900/01/01"),                   // 日期下限，默认：NaN(不限制)
+	
+	            callback: function () {// 点击选择日期后的回调函数
+	            	var bornDate = $("#bornDate").val();
+					bornDate = bornDate + " 00:00:00";
+					bornDate = new Date(bornDate);
+					bornDate = bornDate.getTime();
+					$("#bornDate2").val(bornDate)
+	            }
+	
+	        });
+
+		</script>
+	</body>
+</html>

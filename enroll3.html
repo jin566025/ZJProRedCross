@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<title>报名</title>
+		<link rel="icon" href="icons/ico.ico" type="image/x-icon">
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/enroll.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="main">
+				<div class="header clearfix">
+					<div class="logo fl">
+						<img class="logo-img" src="icons/logo.png" />
+						<a class="logo-name">浙江省红十字会</a>
+					</div>
+					<div class="login-register fr">
+						<img class="personal-info" src="icons/person-info.png" />
+						<div class="personal-info-nav">
+							<p onclick="window.location.href='personal-info.html'">个人资料</p>
+							<p onclick="window.location.href='personal-change-password.html'">修改密码</p>
+							<p id="quit">退出</p>
+						</div>
+					</div>
+				</div>
+				<div class="nav-container clearfix">
+					<div class="nav nav-active">培训报名</div>
+					<div class="nav">网上学习</div>
+					<div class="nav">培训大纲</div>
+					<div class="nav">个人中心</div>
+				</div>
+				<div class="content clearfix">
+					<p class="enroll-position">
+						<a>当前位置：</a>
+						<a class="enroll-position-a" onclick="history.go(-2)">培训报名></a>
+						<a class="enroll-position-a" onclick="history.go(-1)">报名详情></a>
+						<a>报名</a>
+					</p>	
+					<div class="enroll-content">
+						
+						<div class="input-group clearfix">
+							<table class="enroll-table" border="1" bordercolor="#bbbbbb">
+								<tr>
+									<td class="title" colspan="11">我要报名</td>
+								</tr>
+								<tr>
+									<td class="type">姓名</td>
+									<td class="type-input">
+										<input type="text" />
+									</td>
+									<td class="type">性别</td>
+									<td class="type-input">
+										<input type="text" />
+									</td>
+									<td class="type">出生年月</td>
+									<td class="type-input">
+										<input type="text" />
+									</td>
+									<td class="type">民族</td>
+									<td class="type-input">
+										<input type="text" />
+									</td>
+									<td colspan="4" class="type-input uppic-container" rowspan="2">
+										<input class="uppic" type="file" />
+										<span class="uppic-span absolute-center">上传照片</span>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">证件类型</td>
+									<td colspan="2">
+										<select class="card-type">
+											<option>身份证</option>
+										</select>
+									</td>
+									<td colspan="2">证件号码</td>
+									<td colspan="2" class="type-input">
+										<input type="text" />
+									</td>
+								</tr>
+								
+							</table>
+							<table class="enroll-table" border="1" bordercolor="#bbbbbb">
+								<tr>
+									<td colspan="2" class="type">工作单位</td>
+									<td colspan="10" class="type-input">
+										<input type="text" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2" class="type">文化程度</td>
+									<td colspan="2" class="type-input">
+										<input type="text" />
+									</td>
+									<td colspan="2" class="type">职业</td>
+									<td colspan="2" class="type-input">
+										<input type="text" />
+									</td>
+									<td colspan="2" class="type">职称</td>
+									<td colspan="2" class="type-input">
+										<input type="text" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2" class="type">联系地址</td>
+									<td colspan="4" class="type-input">
+										<input type="text" />
+									</td>
+									<td colspan="2" class="type">固定电话</td>
+									<td colspan="4" class="type-input">
+										<input type="text" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2" class="type">手机</td>
+									<td colspan="4" class="type-input">
+										<input type="text" />
+									</td>
+									<td colspan="2" class="type">电子邮件</td>
+									<td colspan="4" class="type-input">
+										<input type="text" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2" class="type">培训日期</td>
+									<td colspan="4" class="type-input">
+										<input type="text" />
+									</td>
+									<td colspan="2" class="type">培训学时</td>
+									<td colspan="4" class="type-input">
+										<input type="text" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2" class="type">发证红会</td>
+									<td colspan="10" class="type-input">
+										<input type="text" />
+									</td>
+
+								</tr>
+							</table>
+						</div>
+						<div class="finish-container">
+							<div class="labels clearfix">
+								<div class="label-left"></div>
+								<div class="label-right">我愿意成为红十字会救护志愿者</div>
+							</div>
+							<div class="finish">确认报名</div>
+						</div>
+						
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+
+		<script type="text/javascript" src="js/href.js" ></script>
+		<script type="text/javascript" src="js/checkUser.js" ></script>
+	</body>
+</html>

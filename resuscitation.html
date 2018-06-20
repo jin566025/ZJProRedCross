@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div class="box-positon ck">
+	<form class="ropt">
+		<input type="submit" value="<@s.m "global.backToList"/>" onclick="this.form.action='v_examEdit.do';" class="return-button"/>
+		<input type="hidden" name="planid" value="${planid!}">
+		<input type="hidden" name="userid" value="${user.id!}">
+		<input type="hidden" name="id" value="${id!}">
+		<input type="hidden" name="scoreid" value="${scoreid!}">
+	</form>
+	<div class="clear"></div>
+</div>
+<div class="body-box">
+<@p.form id="jvForm" action="r_save.do">
+<@p.hidden name="index" value=index!/>
+<@p.hidden name="userid" value=user.id!/>
+<@p.hidden name="planid" value=planid!/>
+<@p.hidden name="id" value=bean.id!/>
+
+
+<@p.text label="姓名" name="name" value=user.name disabled="disables" />
+	<#if user.idType==1>
+    <@p.text label="证件"  value="身份证" disabled="disables" />
+	<#elseif user.idType==2>
+	<@p.text label="证件"  value="护照"  disabled="disables" />
+	<#elseif user.idType==3>
+	<@p.text label="证件"  value="军官证"  disabled="disables" />
+	<#elseif user.idType==4>
+	<@p.text label="证件"  value="驾照"  disabled="disables" />
+	</#if>
+<@p.text label="证件号码" value=user.idNumber disabled="disables" />
+
+<table>
+<td colspan="1" width="150px" align="center">观察环境并做好自我防护</td>
+<td colspan="1" width="600px" align="center">观察并报告险情已排除，得1分，否则不得分</td>
+<td colspan="1" align="center" >
+<#if bean.score1==1>
+<input id="r1" type="radio" value="1" name="score1" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="score1">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="score1">√</input> 
+<input id="r2" type="radio" value="0" name="score1"  checked="true">×</input> 
+</#if>
+</td>
+<@p.tr/>
+
+<td colspan="1" align="center" ></td>
+<td colspan="1" align="center" >戴手套或口述已做好自我防护，得1分，否则不得分。</td>
+<td colspan="1" align="center" >
+<#if bean.score2=1>
+<input id="r3" type="radio" value="1" name="score2" checked="true">√</input> 
+<input id="r4" type="radio" value="0" name="score2">×</input> 
+<#else>
+<input id="r3" type="radio" value="1" name="score2">√</input> 
+<input id="r4" type="radio" value="0" name="score2"  checked="true">×</input> 
+</#if>
+</td>
+<@p.tr/>
+
+<td colspan="1" align="center" >判断意识、呼吸</td>
+<td colspan="1" align="center" >轻拍伤病员双侧肩膀，俯身高声呼叫伤病员，得1分，否则不得分</td>
+<td colspan="1" align="center" >
+<#if bean.score3==1>
+<input id="r5" type="radio" value="1" name="score3" checked="true">√</input> 
+<input id="r6" type="radio" value="0" name="score3">×</input> 
+<#else>
+<input id="r5" type="radio" value="1" name="score3">√</input> 
+<input id="r6" type="radio" value="0" name="score3"  checked="true">×</input> 
+</#if>
+</td>
+<@p.tr/>
+
+<td colspan="1" align="center" ></td>
+<td colspan="1" align="center" >判断伤病员是否有呼吸或有无正常呼吸，时间不超过10秒，得1分，否则不得分。</td>
+<td colspan="1" align="center" >
+<#if bean.score4==1>
+<input id="r7" type="radio" value="1" name="score4" checked="true">√</input> 
+<input id="r8" type="radio" value="0" name="score4">×</input> 
+<#else>
+<input id="r7" type="radio" value="1" name="score4">√</input> 
+<input id="r8" type="radio" value="0" name="score4"  checked="true">×</input> 
+</#if>
+</td>
+<@p.tr/>
+
+<td colspan="1" align="center" >表明身份</td>
+<td colspan="1" align="center" >表明救护员身份，得1分，否则不得分。</td>
+<td colspan="1" align="center" >
+<#if bean.score5==1>
+<input id="r9" type="radio" value="1" name="score5" checked="true">√</input> 
+<input id="r10" type="radio" value="0" name="score5">×</input> 
+<#else>
+<input id="r9" type="radio" value="1" name="score5">√</input> 
+<input id="r10" type="radio" value="0" name="score5"  checked="true">×</input> 
+</#if>
+</td>
+<@p.tr/>
+
+<td colspan="1" align="center" >紧急呼救</td>
+<td colspan="1" align="center" >寻求周围人拨打急救电话及其他帮助，得1分，否则不得分。</td>
+<td colspan="1" align="center" >
+<#if bean.score6==1>
+<input id="r11" type="radio" value="1" name="score6" checked="true">√</input> 
+<input id="r12" type="radio" value="0" name="score6">×</input> 
+<#else>
+<input id="r11" type="radio" value="1" name="score6">√</input> 
+<input id="r12" type="radio" value="0" name="score6"  checked="true">×</input> 
+</#if>
+</td>
+<@p.tr/>
+</table>
+
+<table id="table2">
+<td colspan="1" width="150px" align="center"></td>
+<td colspan="1" width="150px" align="center" ></td>
+<td colspan="1" width="150px" align="center" >第二部分</td>
+<td colspan="1" width="150px" align="center" ></td>
+<td colspan="1" width="150px" align="center" ></td>
+<td colspan="1"  align="center" ></td>
+<@p.tr/>
+
+<td colspan="1" align="center" ></td>
+<td colspan="1" align="center" >1</td>
+<td colspan="1" align="center" >2</td>
+<td colspan="1" align="center" >3</td>
+<td colspan="1" align="center" >4</td>
+<td colspan="1" align="center" >5</td>
+<@p.tr/>
+
+<td colspan="1" align="center" >按压部位<br>（胸骨下1/2部）</td>
+<td colspan="1" align="center" >
+<#if index1[0]==1>
+<input id="e1" type="radio" value="1" name="ext1" checked="true">√</input> 
+<input id="e2" type="radio" value="0" name="ext1">×</input> 
+<#else>
+<input id="e1" type="radio" value="1" name="ext1">√</input> 
+<input id="e2" type="radio" value="0" name="ext1"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index2[0]==1>
+<input id="r1" type="radio" value="1" name="ext2" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext2">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext2">√</input> 
+<input id="r2" type="radio" value="0" name="ext2"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index3[0]==1>
+<input id="r1" type="radio" value="1" name="ext3" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext3">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext3">√</input> 
+<input id="r2" type="radio" value="0" name="ext3"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index4[0]==1>
+<input id="r1" type="radio" value="1" name="ext4" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext4">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext4">√</input> 
+<input id="r2" type="radio" value="0" name="ext4"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index5[0]==1>
+<input id="r1" type="radio" value="1" name="ext5" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext5">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext5">√</input> 
+<input id="r2" type="radio" value="0" name="ext5"  checked="true">×</input> 
+</#if>
+</td>
+<@p.tr/>
+
+<td colspan="1" align="center" >按压频率<br>（30次/15-18秒）</td>
+<td colspan="1" align="center" >
+<#if index1[1]==1>
+<input id="r1" type="radio" value="1" name="ext6" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext6">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext6">√</input> 
+<input id="r2" type="radio" value="0" name="ext6"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index2[1]==1>
+<input id="r1" type="radio" value="1" name="ext7" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext7">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext7">√</input> 
+<input id="r2" type="radio" value="0" name="ext7"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index3[1]==1>
+<input id="r1" type="radio" value="1" name="ext8" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext8">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext8">√</input> 
+<input id="r2" type="radio" value="0" name="ext8"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index4[1]==1>
+<input id="r1" type="radio" value="1" name="ext9" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext9">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext9">√</input> 
+<input id="r2" type="radio" value="0" name="ext9"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index5[1]==1>
+<input id="r1" type="radio" value="1" name="ext10" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext10">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext10">√</input> 
+<input id="r2" type="radio" value="0" name="ext10"  checked="true">×</input> 
+</#if>
+</td>
+<@p.tr/>
+
+<td colspan="1" align="center" >按压深度<br>（至少5-6厘米）</td>
+<td colspan="1" align="center" >
+<#if index1[2]==1>
+<input id="r1" type="radio" value="1" name="ext11" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext11">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext11">√</input> 
+<input id="r2" type="radio" value="0" name="ext11"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index2[2]==1>
+<input id="r1" type="radio" value="1" name="ext12" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext12">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext12">√</input> 
+<input id="r2" type="radio" value="0" name="ext12"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index3[2]==1>
+<input id="r1" type="radio" value="1" name="ext13" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext13">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext13">√</input> 
+<input id="r2" type="radio" value="0" name="ext13"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index4[2]==1>
+<input id="r1" type="radio" value="1" name="ext14" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext14">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext14">√</input> 
+<input id="r2" type="radio" value="0" name="ext14"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index5[2]==1>
+<input id="r1" type="radio" value="1" name="ext15" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext15">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext15">√</input> 
+<input id="r2" type="radio" value="0" name="ext15"  checked="true">×</input> 
+</#if>
+</td>
+<@p.tr/>
+
+<td colspan="1" align="center" >按压后<br>让胸部回复原状</td>
+<td colspan="1" align="center" >
+<#if index1[3]==1>
+<input id="r1" type="radio" value="1" name="ext16" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext16">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext16">√</input> 
+<input id="r2" type="radio" value="0" name="ext16"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index2[3]==1>
+<input id="r1" type="radio" value="1" name="ext17" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext17">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext17">√</input> 
+<input id="r2" type="radio" value="0" name="ext17"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index3[3]==1>
+<input id="r1" type="radio" value="1" name="ext18" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext18">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext18">√</input> 
+<input id="r2" type="radio" value="0" name="ext18"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index4[3]==1>
+<input id="r1" type="radio" value="1" name="ext19" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext19">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext19">√</input> 
+<input id="r2" type="radio" value="0" name="ext19"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index5[3]==1>
+<input id="r1" type="radio" value="1" name="ext20" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext20">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext20">√</input> 
+<input id="r2" type="radio" value="0" name="ext20"  checked="true">×</input> 
+</#if>
+</td>
+<@p.tr/>
+
+<td colspan="1" align="center" >清除异物，打开气道</td>
+<td colspan="1" align="center" >
+<#if index1[4]==1>
+<input id="r1" type="radio" value="1" name="ext21" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext21">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext21">√</input> 
+<input id="r2" type="radio" value="0" name="ext21"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index2[4]==1>
+<input id="r1" type="radio" value="1" name="ext22" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext22">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext22">√</input> 
+<input id="r2" type="radio" value="0" name="ext22"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index3[4]==1>
+<input id="r1" type="radio" value="1" name="ext23" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext23">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext23">√</input> 
+<input id="r2" type="radio" value="0" name="ext23"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index4[4]==1>
+<input id="r1" type="radio" value="1" name="ext24" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext24">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext24">√</input> 
+<input id="r2" type="radio" value="0" name="ext24"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index5[4]==1>
+<input id="r1" type="radio" value="1" name="ext25" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext25">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext25">√</input> 
+<input id="r2" type="radio" value="0" name="ext25"  checked="true">×</input> 
+</#if>
+</td>
+<@p.tr/>
+
+<td colspan="1" align="center" >口对口吹气（约1秒，胸部可见起伏）</td>
+<td colspan="1" align="center" >
+<#if index1[5]==1>
+<input id="r1" type="radio" value="1" name="ext27" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext27">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext27">√</input> 
+<input id="r2" type="radio" value="0" name="ext27"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index2[5]==1>
+<input id="r1" type="radio" value="1" name="ext27" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext27">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext27">√</input> 
+<input id="r2" type="radio" value="0" name="ext27"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index3[5]==1>
+<input id="r1" type="radio" value="1" name="ext28" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext28">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext28">√</input> 
+<input id="r2" type="radio" value="0" name="ext28"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index4[5]==1>
+<input id="r1" type="radio" value="1" name="ext29" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext29">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext29">√</input> 
+<input id="r2" type="radio" value="0" name="ext29"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index5[5]==1>
+<input id="r1" type="radio" value="1" name="ext30" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext30">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext30">√</input> 
+<input id="r2" type="radio" value="0" name="ext30"  checked="true">×</input> 
+</#if>
+</td>
+<@p.tr/>
+
+<td colspan="1" align="center" >按压与吹气之比（30:2）</td>
+<td colspan="1" align="center" >
+<#if index1[6]==1>
+<input id="r1" type="radio" value="1" name="ext31" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext31">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext31">√</input> 
+<input id="r2" type="radio" value="0" name="ext31"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index2[6]==1>
+<input id="r1" type="radio" value="1" name="ext32" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext32">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext32">√</input> 
+<input id="r2" type="radio" value="0" name="ext32"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index3[6]==1>
+<input id="r1" type="radio" value="1" name="ext33" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext33">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext33">√</input> 
+<input id="r2" type="radio" value="0" name="ext33"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index4[6]==1>
+<input id="r1" type="radio" value="1" name="ext34" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext34">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext34">√</input> 
+<input id="r2" type="radio" value="0" name="ext34"  checked="true">×</input> 
+</#if>
+</td>
+<td colspan="1" align="center" >
+<#if index5[6]==1>
+<input id="r1" type="radio" value="1" name="ext35" checked="true">√</input> 
+<input id="r2" type="radio" value="0" name="ext35">×</input> 
+<#else>
+<input id="r1" type="radio" value="1" name="ext35">√</input> 
+<input id="r2" type="radio" value="0" name="ext35"  checked="true">×</input> 
+</#if>
+</td>
+<@p.tr/>
+</table>
+
+<table>
+<td colspan="1" width="150px" align="center">打开气道，评估呼吸</td>
+<td colspan="1" width="600px" align="center">观察呼吸不超过10秒钟，报告复苏成功，得1分，否则不得分。</td>
+<td colspan="1" align="center" >
+<#if bean.score7==1>
+<input id="r13" type="radio" value="1" name="score7" checked="true">√</input> 
+<input id="r14" type="radio" value="0" name="score7">×</input> 
+<#else>
+<input id="r13" type="radio" value="1" name="score7">√</input> 
+<input id="r14" type="radio" value="0" name="score7"  checked="true">×</input> 
+</#if>
+</td>
+<@p.tr/>
+
+<td colspan="1" align="center" >复苏后护理</td>
+<td colspan="1" align="center" >整理伤病员衣服，报告操作完毕，得1分，否则不得分。</td>
+<td colspan="1" align="center" >
+<#if bean.score8==1>
+<input id="r15" type="radio" value="1" name="score8" checked="true">√</input> 
+<input id="r16" type="radio" value="0" name="score8">×</input> 
+<#else>
+<input id="r15" type="radio" value="1" name="score8">√</input> 
+<input id="r16" type="radio" value="0" name="score8"  checked="true">×</input> 
+</#if>
+</td>
+<@p.tr/>
+</table>
+
+<@p.td><@p onclick="submitA()" /> &nbsp; <@p.reset code="global.reset"/></@p.td>
+
+</@p.form>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	function getChecked(){
+		var table= $("#table2");
+		var checkArray = table.find(":checked");
+		var checkVal = [];
+		for(var i=0;i<checkArray.length;i++){
+			checkVal[i] = $(checkArray[i]).val();
+		}
+		return checkVal
+	}
+	var valArray = getChecked();
+	
+	function submitA(){
+		var form = $("#jvForm");
+		var valArray = getChecked();
+		var tmpInput=$("<input type='text' name='valArray'/>");
+		tmpInput.attr("value",valArray);
+		form.append(tmpInput);
+		console.log(form)
+		form.submit();
+	}
+</script>
+</body>
+</html>

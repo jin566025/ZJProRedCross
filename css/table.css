@@ -1,0 +1,31 @@
+.tables{width: 100%;}
+.tables-section1-left{font-size: 12px;font-family: Roboto;color: #323232;}
+.tables-section1-left p{height: 24px;line-height: 24px;}
+.tables-section1-right-p1{font-size: 28px;font-family: Roboto;color: #FF4550;text-align: center;font-weight: bold}
+.tables-section1-right-p2{font-size: 14px;font-family: Roboto;color: #323232;}
+.section-title{width: 100%;text-align: center;font-size: 14px;font-family: Roboto;color: #323232;height: 60px;line-height: 60px;}
+
+.tables-main{font-size: 0;vertical-align: middle;}
+.tables-left,.tables-right{display: inline-block;font-size: 14px;font-family: Roboto;color: #323232;}
+.false-icon,.true-icon{display: inline-block;width: 24px;height: 24px;border-radius:50% ;background-color: #FFB8BC;background-position: center;background-size: 60%;background-repeat: no-repeat;cursor: pointer;}
+.false-icon{background-image: url(../icons/false.png);margin-right: 20px;}
+.true-icon{background-image: url(../icons/true.png);}
+.tables-left{width: 160px;padding: 0 10px;vertical-align: middle;}
+.tables-right{width: 590px;vertical-align: middle;border-left: 1px solid darkgray;}
+
+.options{padding-left: 10px;width: 70%;}
+.true-false{height: 24px;width: 20%;text-align: center;}
+.tables-right-section{padding: 20px 0;}
+.bbb{border-bottom: 1px solid darkgray;}
+.table3{width: 20%;text-align: center;}
+.tables-right2{border-left: none;}
+.left-option{text-align: center;}
+.left-option2{width: 120px;display: inline-block;}
+
+.star{width: 24px;height: 24px;display: inline-block;}
+.submit-btn{width: 100%;height: 80px;border-top: 1px solid darkgray;font-family: Roboto;font-size: 18px;color: #FF4550;text-align: center;line-height: 80px;}
+.tables-section3{padding-bottom: 5px;}
+.top-text{font-size: 14px;font-family: Roboto;color: #323232;}
+.top-input{font-family: Microsoft Yahei;font-size: 12px;color: #969696;padding-left: 5px;border: 1px solid #DCDCDC;height: 30px;line-height: 30px;width: 200px;}
+.start2{width: 24px;height: 24px;vertical-align: middle;margin-right: 10px;}
+.icon-active{background-color: #FF4550;}
