@@ -76,7 +76,16 @@
 .personal-section-title-right{text-align: right;padding-right: 10%;width: 30%;}
 .personal-section-img{width: 374px;}
 .personal-section-img2{margin-left: 18px;}
+.personal-section-img4{display: block;margin: 30px auto;}
+.personal-section-img3{width: 760px;margin: 0 auto;height: 536px;background-size: contain;background-position: center;background-repeat: no-repeat;}
+.person-img-container{width: 760px;margin: 0 auto;height: 118px;overflow: hidden;position: relative;}
+.slide-img{width: 168px;height: 116px;display: inline-block;margin-right:20px ;cursor: pointer;}
+.slide-img-active{border: 1px solid dodgerblue;}
 
+.slide-imgs{font-size: 0;}
+.slide-left{left: 0;background-image: url(../icons/left.png);}
+.slide-right{right: 0;background-image: url(../icons/right.png);}
+.slide-arrow{position: absolute;width: 40px;height: 118px;background-color: rgba(0, 0, 0, 0.26);top:0;background-repeat: no-repeat;background-position: center;background-size: contain;cursor: pointer;z-index: 10;}
 
 .content-section-top-left{font-size: 18px;color: #E51C23;font-family: Roboto;}
 .content-section-top-right{font-size:14px;color:#E51C23;font-family: Roboto;margin-right: 60px;}
@@ -94,3 +103,4 @@
 
 .credit-type{padding: 46px 0;display: none;}
 .credit-type1{display: block;}
+

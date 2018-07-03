@@ -69,8 +69,20 @@
 									<div class="personal-section-title-left fl">宁波红十字会颁发2</div>
 									<div class="personal-section-title-right fr">2018-05-29</div>
 								</div>
-								<img class="personal-section-img personal-section-img1" src="img/test3.png" />
-								<img class="personal-section-img personal-section-img2" src="img/test3.png" />
+								<div class="person-img-content">
+									<div id="slide-img-con" class="personal-section-img3" style="background-image: url(img/test3.png);"></div>
+									<div class="person-img-container">
+										<div class="slide-imgs  clearfix" id="slide-imgs">
+											<img src="img/test3.png" class="slide-img" />
+											<img src="img/test4.png" class="slide-img" />
+											<img src="img/test5.png" class="slide-img" />
+											<img src="img/test6.png" class="slide-img" />
+											<img src="img/test3.png" class="slide-img" />
+										</div>
+										<div id="slide-left" class="slide-left slide-arrow"></div>
+										<div id="slide-right" class="slide-right slide-arrow"></div>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="credit-type credit-type3">
@@ -79,8 +91,12 @@
 									<div class="personal-section-title-left fl">宁波红十字会颁发3</div>
 									<div class="personal-section-title-right fr">2018-05-29</div>
 								</div>
-								<img class="personal-section-img personal-section-img1" src="img/test3.png" />
-								<img class="personal-section-img personal-section-img2" src="img/test3.png" />
+								<img class="personal-section-img personal-section-img4" src="img/test3.png" />
+								<div class="personal-section-title clearfix">
+									<div class="personal-section-title-left fl">宁波红十字会颁发3</div>
+									<div class="personal-section-title-right fr">2018-05-29</div>
+								</div>
+								<img class="personal-section-img personal-section-img4" src="img/test3.png" />
 							</div>
 						</div>
 					</div>
@@ -94,7 +110,93 @@
 		<script type="text/javascript" src="js/url.js" ></script>
 		<script type="text/javascript" src="js/paging.js" ></script>
 		<script>
+			var lm = {
+				init:function(){
+					
+					var that = this;
+					that.getSlide();
+					that.goLeft();
+					that.getPic();
+					that.goRight();
+				},
+				slide:function(){
+					return $(".slide-img")
+				},
+				width:function(){
+					var that = this;
+					var slide  = that.slide();
+					return slide.width()
+				},
+				getSlide:function(){
+					var that = this;
+					var slide  = that.slide();
+					var width = that.width();
+					$("#slide-imgs").css("width",(width+20)*slide.length+"px");
+					var first = $(slide[0]);
+					first.addClass("slide-img-active")
+				},
+
+				
+				goRight:function(){
+					var that = this;
+					$("#slide-right").click(function(){
+						$(this).css("pointer-events","none")
+						var slide  = that.slide();
+						var width = that.width();
+						var last = $(slide).last()
+						var last2 = $(slide).eq(-2)
+//						var second = $(slide[1]);
+						var last2Img = last2.attr("src");
+						var t = this;
+						last.animate({marginLeft:width+"px"},600,function(){
+							last.css("margin-left","0px");
+							slide.removeClass("slide-img-active");
+							last2.addClass("slide-img-active");
+							$("#slide-imgs").prepend(last);
+							$(t).css("pointer-events","visible")
+							$("#slide-img-con").css("background-image","url("+last2Img+")")
+						});
+					
+					})
+				},
+				goLeft:function(){
+					var that = this;
+					$("#slide-left").click(function(){
+						$(this).css("pointer-events","none")
+						var slide  = that.slide();
+						var width = that.width();
+						var first = $(slide[0]);
+						var second = $(slide[1]);
+						var secondImg = second.attr("src");
+						var t = this;
+						first.animate({marginLeft:-width+"px"},600,function(){
+							first.css("margin-left","0px");
+							slide.removeClass("slide-img-active");
+							second.addClass("slide-img-active");
+							$("#slide-imgs").append(first);
+							$(t).css("pointer-events","visible")
+							$("#slide-img-con").css("background-image","url("+secondImg+")")
+						});
+					
+					})
+				},
+				getPic:function(){
+					var that = this;
+					$(".slide-img").click(function(){
+						
+						var src = $(this).attr("src");
+						$("#slide-img-con").css("background-image","url("+src+")");
+						var slide  = that.slide();
+						slide.removeClass("slide-img-active");
+						$(this).addClass("slide-img-active")
+					})
+				}
+				
+			};
 			$(function(){
+				
+				lm.init();
+				
 				var pageNo = 1;
 				var pageSize = 10;
 				//getPaperList(redUserId,pageNo,pageSize);
@@ -111,6 +213,8 @@
 						}
 					})
 			    })
+				
+
 				
 				$(".right-navs").click(function(){
 					tabNav(this)
